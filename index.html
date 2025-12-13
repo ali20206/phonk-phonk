@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Phonk Player</title>
+<style>
+  body {
+    background: #0d0d0d;
+    color: #e5e5e5;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1 { text-align: center; }
+  .song {
+    background: #1a1a1a;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 12px;
+  }
+  button {
+    background: #2b2b2b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  button:hover { background: #444; }
+</style>
+</head>
+
+<body>
+
+<h1>🖤 Phonk Playlist 🖤</h1>
+
+<div class="song">
+  <b>Belong To Me Funk</b><br><br>
+  <audio src="mp3_music/belong_to_me_funk.mp3"></audio>
+  <button onclick="toggle(this)">▶</button>
+</div>
+
+<div class="song">
+  <b>Montagem Batchi</b><br><br>
+  <audio src="mp3_music/montagem_batchi.mp3"></audio>
+  <button onclick="toggle(this)">▶</button>
+</div>
+
+<div class="song">
+  <b>Montagem Xonada</b><br><br>
+  <audio src="mp3_music/montagem_xonada.mp3"></audio>
+  <button onclick="toggle(this)">▶</button>
+</div>
+
+<div class="song">
+  <b>Montagem Rugada</b><br><br>
+  <audio src="mp3_music/montagem_rugada.mp3"></audio>
+  <button onclick="toggle(this)">▶</button>
+</div>
+
+<div class="song">
+  <b>Aura of Glory</b><br><br>
+  <audio src="mp3_music/aura_of_glory.mp3"></audio>
+  <button onclick="toggle(this)">▶</button>
+</div>
+
+<script>
+  let currentAudio = null;
+  let currentButton = null;
+
+  function toggle(btn) {
+    const audio = btn.previousElementSibling;
+
+    // Si on clique sur un autre son
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentButton.textContent = "▶";
+    }
+
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = "⏸";
+      currentAudio = audio;
+      currentButton = btn;
+    } else {
+      audio.pause();
+      btn.textContent = "▶";
+    }
+  }
+</script>
+
+</body>
+</html>
