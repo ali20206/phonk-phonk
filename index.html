@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Phonk music playlist – listen online to the best phonk tracks.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ρʜ⌀ɴĸ & ρʜ⌀ɴĸ</title>
+  <style>
+    body {
+      font-family: "Bahnschrift Condensed", sans-serif;
+      text-align: center;
+      background-color: #e0e0e0;
+      color: #565656;
+      margin: 0;
+      padding: 20px 12px 40px;
+    }
+
+    h1 {
+      color: #a12000;
+      margin-top: 16px;
+    }
+
+    .cover-wrapper {
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 0 auto 20px;
+      max-width: 1000px;
+    }
+
+    .cover-strip {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: scroll 35s linear infinite;
+    }
+
+    .cover-strip img {
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #000;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .song {
+      margin: 20px auto;
+      padding: 14px;
+      background: #000;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: min(95%, 900px);
+      color: #f5f5f5;
+    }
+
+    .song h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #f5f5f5;
+    }
+
+    .song img {
+      border-radius: 10px;
+      border: 2px solid #444;
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .auto-play {
+      margin: 16px auto 24px;
+    }
+
+    .auto-play button {
+      background: #a12000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .auto-play p {
+      margin: 8px 0 0;
+      color: #565656;
+    }
+
+     .hint {
+      margin: 0 0 20px;
+      color: #565656;
+      font-size: 0.95rem;
+    }
+   .context-menu {
+      position: fixed;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      display: none;
+      z-index: 1000;
+      text-align: left;
+    }
+
+    .context-menu button {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: inherit;
+      padding: 8px 12px;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .context-menu button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .song h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: #f5f5f5;
+    }
+
+    .song img {
+      border-radius: 10px;
+      border: 2px solid #444;
+      width: 95px;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .auto-play {
+      margin: 16px auto 24px;
+    }
+
+    .auto-play button {
+      background: #a12000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .auto-play p {
+      margin: 8px 0 0;
+      color: #565656;
+    }
+
+    .hint {
+      margin: 0 0 20px;
+      color: #565656;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover-wrapper" aria-label="Covers phonk">
+    <div class="cover-strip">
+      <img src="https://i.scdn.co/image/ab67616d00001e02601e75b9ba05d8ab2c35ff89" alt="Aura of Glory">
+      <img src="https://i.scdn.co/image/ab67616d0000b273eb011dcd60e677d36dc385da" alt="Bad Parenting Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b2733b5ca830e1f5bdec48bc5c99" alt="Belong To Me Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b27369f9f4e6fdc266b468e05e3a" alt="Dark Night Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b2739246fa656b3b831c60c42fd3" alt="Dia Delicia">
+      <img src="https://i.scdn.co/image/ab67616d0000b2737e37f6e5b613003d4c185672" alt="Funk do bounce">
+      <img src="https://i.scdn.co/image/ab67616d00001e021656bb3ac07d7d88df2f7136" alt="Los Voltajes">
+      <img src="https://i.scdn.co/image/ab67616d0000b273bf665986efe925596af89c17" alt="Mente Má">
+      <img src="https://i.scdn.co/image/ab67616d0000b2732d789ae46722bd5ee89071f7" alt="Montagem Batchi">
+      <img src="https://i.scdn.co/image/ab67616d0000b2739885526706c6638b3ee1154b" alt="Montagem Ladrao">
+      <img src="https://i.scdn.co/image/ab67616d0000b2737341f6edbaeea29a38cbee2b" alt="Montagem Tomada">
+      <img src="https://i.scdn.co/image/ab67616d0000b273f5da0af2725ce8121f7b4011" alt="Montagem Xonada">
+      <img src="https://i.scdn.co/image/ab67616d0000b273c9f7eb9e832dfd6c00dbac8b" alt="Passo Bem Solto">
+      <img src="https://i.scdn.co/image/ab67616d00001e02601e75b9ba05d8ab2c35ff89" alt="Aura of Glory">
+      <img src="https://i.scdn.co/image/ab67616d0000b273eb011dcd60e677d36dc385da" alt="Bad Parenting Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b2733b5ca830e1f5bdec48bc5c99" alt="Belong To Me Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b27369f9f4e6fdc266b468e05e3a" alt="Dark Night Funk">
+      <img src="https://i.scdn.co/image/ab67616d0000b2739246fa656b3b831c60c42fd3" alt="Dia Delicia">
+      <img src="https://i.scdn.co/image/ab67616d0000b2737e37f6e5b613003d4c185672" alt="Funk do bounce">
+      <img src="https://i.scdn.co/image/ab67616d00001e021656bb3ac07d7d88df2f7136" alt="Los Voltajes">
+      <img src="https://i.scdn.co/image/ab67616d0000b273bf665986efe925596af89c17" alt="Mente Má">
+      <img src="https://i.scdn.co/image/ab67616d0000b2732d789ae46722bd5ee89071f7" alt="Montagem Batchi">
+      <img src="https://i.scdn.co/image/ab67616d0000b2739885526706c6638b3ee1154b" alt="Montagem Ladrao">
+      <img src="https://i.scdn.co/image/ab67616d0000b2737341f6edbaeea29a38cbee2b" alt="Montagem Tomada">
+      <img src="https://i.scdn.co/image/ab67616d0000b273f5da0af2725ce8121f7b4011" alt="Montagem Xonada">
+      <img src="https://i.scdn.co/image/ab67616d0000b273c9f7eb9e832dfd6c00dbac8b" alt="Passo Bem Solto">
+    </div>
+  </div>
+
+  <h1>Welcome to my website ρʜ⌀ɴĸ & ρʜ⌀ɴĸ ! 🎶</h1>
+  <p>Listen my best Phonk playlist :</p>
+
+  <div class="auto-play">
+    <button id="auto-play">Enable autoplay chain</button>
+    <p>Click once so the next song plays automatically when the current one ends.</p>
+  </div>
+
+  <p class="hint">Tip: long right-click a song card to move it up or down. Use “Delete” to remove a song.</p>
+
+  <div class="context-menu" id="context-menu" role="menu" aria-hidden="true">
+    <button type="button" id="move-up">Move up</button>
+    <button type="button" id="move-down">Move down</button>
+  </div>
+
+  <div id="playlist">
+  <div class="song">
+    <h2>Acelerada <img src="https://i.scdn.co/image/ab67616d00001e0225690b825d3912a4fd6f7ba9" alt="Acelerada"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/59a8r5.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Amor Na Praia <img src="https://i.scdn.co/image/ab67616d0000b2734235b24064f330afb2ed07c3" alt="Amor Na Praia"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/4rc841.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Analog Horror Funk <img src="https://i.scdn.co/image/ab67616d0000b27383319eef411f95fbc8e57c0b" alt="Analog Horror Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/q4utvd.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Aura of Glory <img src="https://i.scdn.co/image/ab67616d00001e02601e75b9ba05d8ab2c35ff89" alt="Aura of Glory"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/l98g2m.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Bad Happening Funk <img src="https://i.scdn.co/image/ab67616d0000b273d1a86c849fe27288d270ccbc" alt="Bad Happening Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/mwxx0i.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Bad Parenting Funk <img src="https://i.scdn.co/image/ab67616d0000b273eb011dcd60e677d36dc385da" alt="Bad Parenting Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/nhic7y.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Beeper Funk <img src="https://i.scdn.co/image/ab67616d0000b2733442028d6797ae16287e5ad8" alt="Beeper Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/u0epxw.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Belong To Me Funk <img src="https://i.scdn.co/image/ab67616d0000b2733b5ca830e1f5bdec48bc5c99" alt="Belong To Me Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/vdapk5.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Blue Horizon Funk <img src="https://i.scdn.co/image/ab67616d0000b273b2648214c10a28769de1d189" alt="Blue Horizon Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/zo3pmj.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Boogie Woogie Funk <img src="https://i.scdn.co/image/ab67616d0000b273f99f95dae4cd6f1f2ed6a961" alt="Boogie Woogie Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/t6jo7z.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Burning Memory Funk <img src="https://i.scdn.co/image/ab67616d0000b2739556758977a28e7841e5da21" alt="Burning Memory Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/2z7mpd.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Clima Lindo <img src="https://i.scdn.co/image/ab67616d0000b2730ac206843b1dad61e3ab8fa5" alt="Clima Lindo"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/dgl4o2.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Confess your love Funk <img src="https://i.scdn.co/image/ab67616d0000b27358c17bbfb9dc22988ac80a72" alt="Confess your love Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/jiavzp.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Dark Night Funk <img src="https://i.scdn.co/image/ab67616d0000b27369f9f4e6fdc266b468e05e3a" alt="Dark Night Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/tme68d.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Dia Delicia <img src="https://i.scdn.co/image/ab67616d0000b2739246fa656b3b831c60c42fd3" alt="Dia Delicia"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/qwcjmc.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Dirty Shoes Funk <img src="https://i.scdn.co/image/ab67616d0000b273d62e632f025494138d88afac" alt="Dirty Shoes Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/o7t1f8.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Dream Funk <img src="https://i.scdn.co/image/ab67616d00001e02159e21fea6c422ae76694465" alt="Dream Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/wb95sr.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Dreamcore Funk <img src="https://i.scdn.co/image/ab67616d0000b273a3b5fbbf74207f55b04ebc5a" alt="Dreamcore Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/bqngcs.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk bad do bad <img src="https://i.scdn.co/image/ab67616d00001e029662ff62417cfd3fdc1c7735" alt="Funk bad do bad"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/49kihv.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk do balkan <img src="https://i.scdn.co/image/ab67616d0000b27337ebaee7e30dd9d17d55fa0a" alt="Funk do balkan"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/6nr9k0.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk do bounce <img src="https://i.scdn.co/image/ab67616d0000b2737e37f6e5b613003d4c185672" alt="Funk do bounce"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/bimn01.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk do wedding <img src="https://i.scdn.co/image/ab67616d0000b273447737ca26b8c8a01503932e" alt="Funk do wedding"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/ascx4w.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk gore do gore <img src="https://i.scdn.co/image/ab67616d0000b273192bd57760ef2865ae598c8a" alt="Funk gore do gore"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/ozgpqb.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Funk Italiano <img src="https://i.scdn.co/image/ab67616d0000b2737c0788539424f89f875f6dcc" alt="Funk Italiano"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/wyj26p.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Homage Funk <img src="https://i.scdn.co/image/ab67616d0000b273b2ce7f1c3655df8fe0a4fc88" alt="Homage Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/k7kktr.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Los Voltajes <img src="https://i.scdn.co/image/ab67616d00001e021656bb3ac07d7d88df2f7136" alt="Los Voltajes"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/mx8ghj.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Luna Bala <img src="https://i.scdn.co/image/ab67616d00001e02a4b1be988bb6503434c43d56" alt="Luna Bala"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/s5u18s.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Mente Má <img src="https://i.scdn.co/image/ab67616d0000b273bf665986efe925596af89c17" alt="Mente Má"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/fqzkoa.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Bailão <img src="https://i.scdn.co/image/ab67616d0000b2739c89916016a225674490025b" alt="Montagem Bailão"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/dr94l6.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Bandido <img src="https://i.scdn.co/image/ab67616d0000b273aa092287b14aea38a2895ffd" alt="Montagem Bandido"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/1bnysk.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Batchi <img src="https://i.scdn.co/image/ab67616d0000b2732d789ae46722bd5ee89071f7" alt="Montagem Batchi"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/yh3ipk.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Camera Lenta <img src="https://i.scdn.co/image/ab67616d0000b273f9472785066a43a8f6474294" alt="Montagem Camera Lenta"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/2mkfc8.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Coma <img src="https://i.scdn.co/image/ab67616d0000b2731164d485c1327d039b38ff9f" alt="Montagem Coma"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/wdajry.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Contigo <img src="https://i.scdn.co/image/ab67616d0000b2730e1c0abd062a1165292f4098" alt="Montagem Contigo"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/9bbw8y.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Despegado <img src="https://i.scdn.co/image/ab67616d0000b273ee1e65b97779fcfbe05939be" alt="Montagem Despegado"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/zhcc3x.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Ladrao <img src="https://i.scdn.co/image/ab67616d0000b2739885526706c6638b3ee1154b" alt="Montagem Ladrao"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/parycv.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Lunar Celestia <img src="https://i.scdn.co/image/ab67616d0000b273f8f4336b604ba6117ed05059" alt="Montagem Lunar Celestia"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/5mji40.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Mandela <img src="https://i.scdn.co/image/ab67616d0000b27312dba6d9f7989664816eb0ea" alt="Montagem Mandela"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/4aixmk.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Miau <img src="https://i.scdn.co/image/ab67616d0000b273e9b0132726f1e6ca34a7ac98" alt="Montagem Miau"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/fog9sb.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Rugada <img src="https://i.scdn.co/image/ab67616d0000b2737f89316a2d0bf6abe554a39a" alt="Montagem Rugada"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/im14rt.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Solar Atmosfera <img src="https://i.scdn.co/image/ab67616d0000b2739e834a6c29468e6e9e6494e8" alt="Montagem Solar Atmosfera"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/h7zdgw.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Supersonic <img src="https://i.scdn.co/image/ab67616d0000b273b8a4fa0168c52aa15ca9f882" alt="Montagem Supersonic"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/978tex.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Tomada <img src="https://i.scdn.co/image/ab67616d0000b2737341f6edbaeea29a38cbee2b" alt="Montagem Tomada"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/x48rsb.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Vozes Talentinho <img src="https://i.scdn.co/image/ab67616d0000b273f3aaf8a7a62e0e3fd2b7046d" alt="Montagem Vozes Talentinho"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/s8jm7a.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Xonada <img src="https://i.scdn.co/image/ab67616d0000b273f5da0af2725ce8121f7b4011" alt="Montagem Xonada"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/0hdd0i.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Montagem Yt Kids <img src="https://i.scdn.co/image/ab67616d00001e0249a8517cac8a3e6da1aaa8da" alt="Montagem Yt Kids"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/v5d628.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Nada Nada <img src="https://i.scdn.co/image/ab67616d0000b273f975a00c6e4477f78fc6fffd" alt="Nada Nada"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/6b63j1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>No Batidão <img src="https://i.scdn.co/image/ab67616d0000b2737bff89cf90806ae22a6b72df" alt="No Batidão"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/ejim40.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Nunca Muda <img src="https://i.scdn.co/image/ab67616d00001e026dd11d164947e94d2c3bf381" alt="Nunca Muda"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/cbgupm.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Passo Bem Solto <img src="https://i.scdn.co/image/ab67616d0000b273c9f7eb9e832dfd6c00dbac8b" alt="Passo Bem Solto"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/d9pop3.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Puch <img src="https://i.scdn.co/image/ab67616d0000b273f12512e5da36726f731a2183" alt="Puch"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/5p6j9q.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Real Moonshine Funk <img src="https://i.scdn.co/image/ab67616d0000b2731c7e92d3c0860d194705474e" alt="Real Moonshine Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/wf2f8p.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Real Moonshine Funk v2 <img src="https://i.scdn.co/image/ab67616d0000b2730670e42a073601b5322a734b" alt="Real Moonshine Funk v2"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/9ne7v2.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Reinado <img src="https://i.scdn.co/image/ab67616d0000b273bb5cdc4c696ebab82a37100b" alt="Reinado"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/cw8xkd.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Sem Freio <img src="https://i.scdn.co/image/ab67616d0000b27343ecdcbb927fcc51ddaab36b" alt="Sem Freio"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/knyl4z.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Senta Cara <img src="https://i.scdn.co/image/ab67616d00001e027e9534a20d95e63f3f943435" alt="Senta Cara"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/5b846k.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Tetris Funk <img src="https://i.scdn.co/image/ab67616d00001e02fc50d26c3a71247d5854d39a" alt="Tetris Funk"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/81zub2.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Vai Vai Trair <img src="https://i.scdn.co/image/ab67616d0000b27353a45cb807e4694bc825a240" alt="Vai Vai Trair"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/xjg67v.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="song">
+    <h2>Yo me siento libre <img src="https://i.scdn.co/image/ab67616d0000b27311727fcf77dd75a345a95159" alt="Yo me siento libre"></h2>
+    <audio controls>
+      <source src="https://files.catbox.moe/go8k9a.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  </div>
+
+  <article>Hope you enjoyed the website!</article>
+
+  <script>
+    const getAudioPlayers = () =>
+      Array.from(document.querySelectorAll(".song audio"));
+    const toggleButton = document.getElementById("auto-play");
+    const playlist = document.getElementById("playlist");
+    const contextMenu = document.getElementById("context-menu");
+    const moveUpButton = document.getElementById("move-up");
+    const moveDownButton = document.getElementById("move-down");
+    let autoPlayEnabled = false;
+    let contextTarget = null;
+
+    const playNext = (currentIndex) => {
+      if (!autoPlayEnabled) return;
+      const players = getAudioPlayers();
+      if (!players.length) return;
+      const nextIndex = (currentIndex + 1) % players.length;
+      players[nextIndex].play();
+    };
+
+    getAudioPlayers().forEach((player, index) => {
+      player.addEventListener("ended", () => playNext(index));
+      player.addEventListener("play", () => {
+        getAudioPlayers().forEach((otherPlayer) => {
+          if (otherPlayer !== player) {
+            otherPlayer.pause();
+          }
+        });
+      });
+    });
+
+    const addDeleteButtons = () => {
+      const songs = Array.from(document.querySelectorAll(".song"));
+      songs.forEach((song) => {
+        const actions = document.createElement("div");
+        actions.className = "song__actions";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+          song.remove();
+        });
+
+        actions.appendChild(deleteButton);
+        song.appendChild(actions);
+      });
+    };
+
+    const setupContextMenu = () => {
+      const songs = Array.from(document.querySelectorAll(".song"));
+
+      songs.forEach((song) => {
+        let pressTimer = null;
+
+        song.addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+        });
+
+        song.addEventListener("pointerdown", (event) => {
+          if (event.button !== 2) return;
+          pressTimer = window.setTimeout(() => {
+            contextTarget = song;
+            contextMenu.style.display = "block";
+            contextMenu.style.left = `${event.clientX}px`;
+            contextMenu.style.top = `${event.clientY}px`;
+            contextMenu.setAttribute("aria-hidden", "false");
+          }, 400);
+        });
+
+        const clearPress = () => {
+          if (pressTimer) {
+            window.clearTimeout(pressTimer);
+            pressTimer = null;
+          }
+        };
+
+        song.addEventListener("pointerup", clearPress);
+        song.addEventListener("pointerleave", clearPress);
+      });
+    };
+
+    const hideContextMenu = () => {
+      contextMenu.style.display = "none";
+      contextMenu.setAttribute("aria-hidden", "true");
+      contextTarget = null;
+    };
+
+    moveUpButton.addEventListener("click", () => {
+      if (!contextTarget) return;
+      const previous = contextTarget.previousElementSibling;
+      if (previous) {
+        playlist.insertBefore(contextTarget, previous);
+      }
+      hideContextMenu();
+    });
+
+    moveDownButton.addEventListener("click", () => {
+      if (!contextTarget) return;
+      const next = contextTarget.nextElementSibling?.nextSibling;
+      playlist.insertBefore(contextTarget, next);
+      hideContextMenu();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!contextMenu.contains(event.target)) {
+        hideContextMenu();
+      }
+    });
+
+    toggleButton.addEventListener("click", () => {
+      autoPlayEnabled = !autoPlayEnabled;
+      toggleButton.textContent = autoPlayEnabled
+        ? "Autoplay enabled"
+        : "Enable autoplay chain";
+
+      if (autoPlayEnabled) {
+        const players = getAudioPlayers();
+        const current = players.find((player) => !player.paused);
+        const startPlayer = current || players[0];
+        if (startPlayer) {
+          startPlayer.play();
+        }
+      }
+    });
+
+    addDeleteButtons();
+    setupContextMenu();
+  </script>
+</body>
+</html>
